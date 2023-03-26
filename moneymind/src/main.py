@@ -11,11 +11,14 @@ def get_services(person, group_code):
     data = json.loads(response.text)
 
     # Extract the list of services and fees from the JSON data
-    results = data['value']
+    true_results = data['value']
 
-    return results
+    return true_results
 
 
 # Example usage: get the list of banking services and fees for companies (pessoa='J') in the service category '01'
 results = get_services('J', '01')
-print(results)
+
+pretty_json = json.dumps(results, indent=4)
+
+print(pretty_json)
