@@ -16,9 +16,9 @@ def get_services(person, group_code):
     return true_results
 
 
-# Example usage: get the list of banking services and fees for companies (pessoa='J') in the service category '01'
+# Example usage: get the list of banking services and fees for companies (pessoa='J') in the service category '01''
 results = get_services('J', '01')
 
-pretty_json = json.dumps(results, indent=4)
+pretty_json = json.dumps(results, indent=4, ensure_ascii=False)
 
 print(pretty_json)
