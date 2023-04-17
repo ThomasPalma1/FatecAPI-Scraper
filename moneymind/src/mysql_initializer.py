@@ -1,9 +1,10 @@
 import mysql.connector
+from getpass import getpass
 
 
 def establishing_mysql_connection():
     mysql_user = input("Enter your MySQL username: ")
-    mysql_password = input("Enter your MySQL password: ")
+    mysql_password = getpass("Enter your MySQL password: ")
     try:
         connection = mysql.connector.connect(
             host="localhost",
