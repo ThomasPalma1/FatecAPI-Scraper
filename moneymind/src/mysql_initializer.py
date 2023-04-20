@@ -1,16 +1,19 @@
 import mysql.connector
-from getpass import getpass
+import os
+from dotenv import load_dotenv
+from time import sleep
+
+load_dotenv()
 
 
 def establishing_mysql_connection():
-    mysql_user = input("Enter your MySQL username: ")
-    mysql_password = getpass("Enter your MySQL password: ")
     try:
+        sleep(5)
         connection = mysql.connector.connect(
-            host="localhost",
-            user=mysql_user,
-            password=mysql_password,
-            database="money_mind",
+            host=os.environ.get('MYSQL_HOST'),
+            user=os.environ.get('MYSQL_USER'),
+            password=os.environ.get('MYSQL_PASSWORD'),
+            database=os.environ.get('MYSQL_DATABASE'),
         )
         cursor = connection.cursor()
         print("Connected to MySQL database!")
