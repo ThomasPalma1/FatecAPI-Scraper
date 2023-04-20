@@ -19,11 +19,3 @@ services:
     build:
       context: .
       dockerfile: ./sqlDocker/Dockerfile
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    volumes:
-      - dbdata:/var/lib/mysql
-      - ./sql-scripts:/docker-entrypoint-initdb.d
-      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
-
-volumes:
-  dbdata:
