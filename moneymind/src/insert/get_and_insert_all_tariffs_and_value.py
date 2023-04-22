@@ -3,7 +3,7 @@ from get.get_code_services import get_code_services
 import json
 import requests
 
-from src.mysql_initializer import establishing_mysql_connection
+from mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()
