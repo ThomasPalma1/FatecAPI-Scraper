@@ -1,5 +1,5 @@
-from src.get.get_institutions import get_institutions
-from src.mysql_initializer import establishing_mysql_connection
+from get.get_institutions import get_institutions
+from mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()

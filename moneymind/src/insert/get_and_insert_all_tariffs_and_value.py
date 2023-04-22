@@ -1,5 +1,5 @@
-from src.get.get_consolidated_group import get_consolidated_group
-from src.get.get_code_services import get_code_services
+from get.get_consolidated_group import get_consolidated_group
+from get.get_code_services import get_code_services
 import json
 import requests
 

@@ -1,7 +1,7 @@
-from src.get.get_institutions import get_institutions
+from get.get_institutions import get_institutions
 import json
 import requests
-from src.mysql_initializer import establishing_mysql_connection
+from mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()

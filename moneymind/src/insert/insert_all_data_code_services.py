@@ -1,5 +1,5 @@
-from src.mysql_initializer import establishing_mysql_connection
-from src.get.get_code_services import get_code_services
+from mysql_initializer import establishing_mysql_connection
+from get.get_code_services import get_code_services
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()
