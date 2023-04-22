@@ -14,7 +14,6 @@ def establishing_mysql_connection():
             database=os.environ.get('MYSQL_DATABASE'),
         )
         cursor = connection.cursor()
-        print("Connected to MySQL database!")
         cursor.execute(
             "CREATE TABLE IF NOT EXISTS grupos_consolidados (id INT AUTO_INCREMENT PRIMARY KEY, codigo VARCHAR(50) NOT NULL, nome VARCHAR(256) NOT NULL)"
         )
@@ -35,3 +34,8 @@ def establishing_mysql_connection():
     except mysql.connector.Error as error:
         print("Failed to connect to MySQL database: {}".format(error))
         return None
+
+
+connection = establishing_mysql_connection()
+if connection:
+    print("Connected to MySQL database!")
