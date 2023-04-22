@@ -1,7 +1,7 @@
-from get_institutions import get_institutions
+from src.get.get_institutions import get_institutions
 import json
 import requests
-from mysql_initializer import establishing_mysql_connection
+from src.mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()
@@ -9,9 +9,9 @@ cursor = connection.cursor()
 
 def get_and_insert_institutions_tariffs():
     institutions = get_institutions()
-    typePerson = ['F', 'J']
+    type_person = ['F', 'J']
 
-    for person in typePerson:
+    for person in type_person:
         for bank in institutions:
             url = f"https://olinda.bcb.gov.br/olinda/servico/Informes_ListaTarifasPorInstituicaoFinanceira/versao/v1/odata/ListaTarifasPorInstituicaoFinanceira(PessoaFisicaOuJuridica=@PessoaFisicaOuJuridica,CNPJ=@CNPJ)?@PessoaFisicaOuJuridica='{person}'&@CNPJ='{bank['Cnpj']}'&$top=10000&$format=json"
             response = requests.get(url)

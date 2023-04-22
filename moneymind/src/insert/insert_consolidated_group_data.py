@@ -1,5 +1,5 @@
-from get_consolidated_group import get_consolidated_group
-from mysql_initializer import establishing_mysql_connection
+from src.get.get_consolidated_group import get_consolidated_group
+from src.mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()

@@ -1,9 +1,9 @@
-from get_consolidated_group import get_consolidated_group
-from get_code_services import get_code_services
+from src.get.get_consolidated_group import get_consolidated_group
+from src.get.get_code_services import get_code_services
 import json
 import requests
 
-from mysql_initializer import establishing_mysql_connection
+from src.mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()
