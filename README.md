@@ -55,10 +55,16 @@
 
 <p align="justify">In this project there are two ways of execution, one of them is through Docker and the other is locally.</p>
 
-#### **Run the project via Docker**
+### **Run the project via Docker**
 
 > **It is important that you have Docker installed on your machine. I won't go into detail on how you can install Docker, but you can follow the steps in the [official Docker documentation](https://docs.docker.com/engine/install/).**
 
-<p align="justify">After downloading the project manually or via Git commands, you should go to the <code>moneymind/</code> directory. You will notice that there is a file called <code>docker-compose.yml</code>, it is through this file that the project will be executed. Open a terminal of your choice, if possible one with <b>administrator/root privileges</b> and run the following command: <code>docker compose up</code></p>
+<p align="justify">After downloading the project manually or via Git commands, you should go to the <code>moneymind/</code> directory. You will notice that there is a file called <code>docker-compose.yml</code>, it is through this file that the project will be executed. Open a terminal of your choice, if possible one with <b>administrator/root privileges</b> and run the following command:</p>
+
+<pre>
+  <code>
+    docker compose up
+  </code>
+</pre>
 
 <p align="justify">When the command mentioned above is executed, Docker starts creating and starting the containers defined in the <code>docker-compose.yml</code> file. It downloads the necessary images, creates the networks and volumes as specified, and starts the containers based on the provided settings.</p>
