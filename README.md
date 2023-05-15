@@ -29,6 +29,16 @@
         <td align="center">Programming language used in the development of the service.</td>
     </tr>
     <tr>
+        <td align="center">python3-pip</td>
+        <td align="center">>= 22.3</td>
+        <td align="center">Python's default package manager.</td>
+    </tr>
+    <tr>
+        <td align="center">virtualenv</td>
+        <td align="justify">>= 20.13</td>
+        <td align="center">A tool that makes it possible to create isolated virtual python environments.</td>
+    </tr>
+    <tr>
         <td align="center">requests</td>
         <td align="center">>= 2.28</td>
         <td align="center">Dependency that allows you to send HTTP/1.1 requests extremely easily.</td>
@@ -43,17 +53,22 @@
         <td align="center">>= 1.0</td>
         <td align="center">Library that makes it possible to load environment variables from an `.env` file into the project.</td>
     </tr>
-    <tr>
-        <td align="center">python3-pip </td>
-        <td align="center">>= 22.3</td>
-        <td align="center">Python's default package manager.</td>
-    </tr>
 </table>
 
 
 ## **Execution of the service**
 
-<p align="justify">In this project there are two ways of execution, one of them is through Docker and the other is locally.</p>
+<p align="justify">In this project there are two ways of execution, one of them is through Docker and the other is locally. Next you will see the step by step of how to run the project in the two ways mentioned.</p>
+
+> **Warning**
+> The project is configured to work with environment variables. You need to add your database credentials into the `.env` file located in the `moneymind/src` directory.
+
+```sh
+MARIADB_DATABASE=money_mind
+MARIADB_USER=your_user
+MARIADB_PASSWORD=your_password
+MARIADB_PASSWORD_ROOT=your_password
+```
 
 ### **Run the project via Docker**
 
@@ -67,4 +82,26 @@ docker compose up
 
 <p align="justify">When the command mentioned above is executed, Docker starts creating and starting the containers defined in the <code>docker-compose.yml</code> file. It downloads the necessary images, creates the networks and volumes as specified, and starts the containers based on the provided settings.</p>
 
-<p align="justify">In case the execution of the command is carried out successfully, you will notice that your terminal will show that the values have started to be inserted.</p>
+<p align="justify">In the case where the execution of the command is carried out successfully, you will notice that your terminal will show you that the values have started to be inserted.</p>
+
+
+### **Run the project via Localhost**
+
+> ****
+
+<p align="justify"></p>
+
+```sh
+
+```
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+
+
+> **Note**
+> This is a note
+
+> **Warning**
+> This is a warning
