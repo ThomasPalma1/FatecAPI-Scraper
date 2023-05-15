@@ -61,10 +61,10 @@
 
 <p align="justify">After downloading the project manually or via Git commands, you should go to the <code>moneymind/</code> directory. You will notice that there is a file called <code>docker-compose.yml</code>, it is through this file that the project will be executed. Open a terminal of your choice, if possible one with <b>administrator/root privileges</b> and run the following command:</p>
 
-<pre>
-  <code>
-    docker compose up
-  </code>
-</pre>
+```sh
+docker compose up
+```
 
 <p align="justify">When the command mentioned above is executed, Docker starts creating and starting the containers defined in the <code>docker-compose.yml</code> file. It downloads the necessary images, creates the networks and volumes as specified, and starts the containers based on the provided settings.</p>
+
+<p align="justify">In case the execution of the command is carried out successfully, you will notice that your terminal will show that the values have started to be inserted.</p>
