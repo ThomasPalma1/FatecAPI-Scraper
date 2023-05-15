@@ -61,8 +61,10 @@
 <p align="justify">In this project there are two ways of execution, one of them is through Docker and the other is locally. Next you will see the step by step of how to run the project in the two ways mentioned.</p>
 
 > **Note**
-> The project is configured to work with environment variables. You need to add your database credentials into the `.env` file located in the `moneymind/src` directory.
-> It is important to create the `money_mind` database within MySQL. If you are interested in using another database, just change the name inside the file and environment variables.
+> The project is configured to work with environment variables. You need to add your database credentials into the `.env` file located in the `moneymind/src` directory;
+> 
+> It is important to create the `money_mind` database within MySQL. If you are interested in using another database, just change the name inside the file and environment variables;
+> 
 > In the environment variable where the host is being specified, it is important to leave the name of the container that is running the database, which in this case is `dbDocker`.
 
 ```sh
