@@ -95,19 +95,42 @@ docker compose up
 
 > ****
 
-<p align="justify"></p>
+<p align="justify">If you are interested in running the project locally, you must have to go to the <code>moneymind/src</code> directory and run the command shown below:</p>
+
+###### **If you are using Linux:**
 
 ```sh
+virtualenv -p /usr/bin/python3 venv
+```
 
+###### **Or if you are using Windows**
+
+```sh
+virtualenv venv --python=python3
+```
+
+<p align="justify">Basically running this command will create a directory called <code>venv</code> within the current directory. This isolated directory allows you to install Python dependencies without affecting or conflicting dependencies that are installed outside of this environment.</p>
+
+<p align="justify">And to use this environment is very simple. Inside the recommended directory where you created the <code>venv</code> respecting your operating system, run the command below:</p>
+
+###### **If you are using Linux:**
+
+```sh
+source venv/bin/activate
+```
+
+###### **Or if you are using Windows**
+
+```sh
+.\venv\Scripts\Activate.ps1
 ```
 
 <p align="justify"></p>
 
+```sh
+pip install -r requirements.txt
+```
+
 <p align="justify"></p>
 
 
-> **Note**
-> This is a note
-
-> **Warning**
-> This is a warning
