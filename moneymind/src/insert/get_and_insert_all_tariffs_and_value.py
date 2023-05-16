@@ -12,6 +12,7 @@ cursor = connection.cursor()
 def get_and_insert_all_tariffs_and_value():
     consolidated_group = get_consolidated_group()
     services = get_code_services()
+    count = 0
 
     for service in services:
         for group in consolidated_group:
@@ -21,11 +22,8 @@ def get_and_insert_all_tariffs_and_value():
             true_results = data['value']
 
             if true_results:
-
                 for tr in true_results:
-                    # Checks if API data is null
                     if tr["Cnpj"]:
-                        # Save the data in the database
                         data_tariffs_values = (
                             tr["Cnpj"],
                             tr["RazaoSocial"],
@@ -34,12 +32,12 @@ def get_and_insert_all_tariffs_and_value():
                             service["Codigo"],
                             group["Codigo"],
                         )
-                        sql_tariffs_values = (
-                            "INSERT INTO lista_tarifas_valores (cnpj, razao_social, valor_maximo, periodicidade, servico, grupo) VALUES (%s, %s, %s, %s, %s, %s)")
+                        sql_tariffs_values = "INSERT INTO lista_tarifas_valores (cnpj, razao_social, valor_maximo, periodicidade, servico, grupo) VALUES (%s, %s, %s, %s, %s, %s)"
                         value_tariffs_values = data_tariffs_values
                         cursor.execute(sql_tariffs_values, value_tariffs_values)
                         connection.commit()
-                        print(cursor.rowcount, "Tariffs and value.")
+                        count += 1
+                        print(count, "Tariffs and value.")
             else:
                 print("Empty Tariffs and value.")
     return cursor

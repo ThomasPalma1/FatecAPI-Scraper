@@ -10,6 +10,7 @@ cursor = connection.cursor()
 def get_and_insert_institutions_tariffs():
     institutions = get_institutions()
     type_person = ['F', 'J']
+    count = 0
 
     for person in type_person:
         for bank in institutions:
@@ -19,11 +20,8 @@ def get_and_insert_institutions_tariffs():
             true_results = data['value']
 
             if true_results:
-
                 for tr in true_results:
-                    # Checks if API data is null
                     if bank["Cnpj"]:
-                        # Save the data in the database
                         data_tariffs_values_institutions = (
                             tr["CodigoServico"],
                             tr["Servico"],
@@ -35,12 +33,12 @@ def get_and_insert_institutions_tariffs():
                             bank["Cnpj"],
                             person,
                         )
-                        sql_tariffs_values_institutions = (
-                            "INSERT INTO lista_tarifas_instituicoes (codigo_servico, servico, unidade, data_vigencia, valor_maximo, tipo_valor, periodicidade, cnpj, pessoa) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)")
+                        sql_tariffs_values_institutions = "INSERT INTO lista_tarifas_instituicoes (codigo_servico, servico, unidade, data_vigencia, valor_maximo, tipo_valor, periodicidade, cnpj, pessoa) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
                         value_tariffs_values_institutions = data_tariffs_values_institutions
                         cursor.execute(sql_tariffs_values_institutions, value_tariffs_values_institutions)
                         connection.commit()
-                        print(cursor.rowcount, "Tariffs Institutions.")
+                        count += 1
+                        print(count, "Tariffs Institutions.")
             else:
                 print("Empty Tariffs Institutions.")
     return cursor

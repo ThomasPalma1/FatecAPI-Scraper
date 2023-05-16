@@ -7,12 +7,13 @@ cursor = connection.cursor()
 
 def insert_all_data_code_services():
     services = get_code_services()
+    count = 0
     for service in services:
         dados_serv = (service['Codigo'], service['Nome'])
         sql_service = "INSERT INTO lista_servicos (codigo, nome) VALUES (%s, %s)"
         value_service = dados_serv
         cursor.execute(sql_service, value_service)
-
         connection.commit()
-        print(cursor.rowcount, "Code service")
+        count += 1
+        print(count, "code service")
     return cursor

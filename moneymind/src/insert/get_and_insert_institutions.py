@@ -7,18 +7,19 @@ cursor = connection.cursor()
 
 def get_and_insert_institutions():
     institutions = get_institutions()
+    count = 0
+
     for bank in institutions:
         if bank["Cnpj"]:
-            # Save the data in the database
             data_institutions_values = (
                 bank["Cnpj"],
                 bank["Nome"],
             )
-            institutions = (
-                "INSERT INTO instituicoes (cnpj, nome) VALUES (%s, %s)")
+            institutions_query = "INSERT INTO instituicoes (cnpj, nome) VALUES (%s, %s)"
             value_institutions_values = data_institutions_values
-            cursor.execute(institutions, value_institutions_values)
+            cursor.execute(institutions_query, value_institutions_values)
             connection.commit()
-            print(cursor.rowcount, "insert institutions.")
+            count += 1
+            print(count, "insert institutions.")
 
     return cursor

@@ -2,12 +2,13 @@ import mysql.connector
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), 'standard_database_information.env')
+load_dotenv(dotenv_path)
 
 
 def establishing_mysql_connection():
-    host = os.environ.get('MYSQL_HOST')
-    host_docker = os.environ.get('MYSQL_HOST_DOCKER')
+    host = os.getenv('MYSQL_HOST')
+    host_docker = os.getenv('MYSQL_HOST_DOCKER')
 
     selected_host = host or host_docker
     print(selected_host)
@@ -16,9 +17,9 @@ def establishing_mysql_connection():
         try:
             connection = mysql.connector.connect(
                 host=selected_host,
-                user=os.environ.get('MYSQL_USER'),
-                password=os.environ.get('MYSQL_PASSWORD'),
-                database=os.environ.get('MYSQL_DATABASE'),
+                user=os.getenv('MYSQL_USER'),
+                password=os.getenv('MYSQL_PASSWORD'),
+                database=os.getenv('MYSQL_DATABASE'),
             )
             cursor = connection.cursor()
             cursor.execute(
