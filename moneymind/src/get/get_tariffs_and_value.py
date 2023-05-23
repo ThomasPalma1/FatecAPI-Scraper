@@ -25,12 +25,26 @@ def get_all_tariffs_and_value():
                 response = session.get(url)
                 response.raise_for_status()
                 data = json.loads(response.text)
-                true_result = data['value']
-                true_results.append(true_result)
-                print(service, group)
+                results = data['value']
+
+                if results:
+                    for result in results:
+
+                        if result["Cnpj"]:
+                            data_tariffs_values = (
+                                result["Cnpj"],
+                                result["RazaoSocial"],
+                                result["ValorMaximo"],
+                                result["Periodicidade"],
+                                service["Codigo"],
+                                group["Codigo"],
+                            )
+                            true_results.append(data_tariffs_values)
+                            print(data_tariffs_values)
+                        else:
+                            print("Empty Tariffs and value.")
             except (ConnectionError, requests.exceptions.HTTPError) as e:
                 print(f"Connection error occurred: {e}.")
             except Exception as e:
                 print(f"An error occurred: {e}.")
-
     return true_results
