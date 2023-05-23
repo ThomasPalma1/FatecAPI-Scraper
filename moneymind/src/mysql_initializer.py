@@ -1,6 +1,7 @@
 import mysql.connector
 import os
 from dotenv import load_dotenv
+import socket
 
 dotenv_path = os.path.join(os.path.dirname(__file__), 'standard_database_information.env')
 load_dotenv(dotenv_path)
@@ -11,7 +12,8 @@ def establishing_mysql_connection():
     host_docker = os.getenv('MYSQL_HOST_DOCKER')
 
     selected_host = host or host_docker
-    print(selected_host)
+    # print(selected_host)
+    # print(host, host_docker)
 
     if selected_host:
         try:
@@ -20,6 +22,7 @@ def establishing_mysql_connection():
                 user=os.getenv('MYSQL_USER'),
                 password=os.getenv('MYSQL_PASSWORD'),
                 database=os.getenv('MYSQL_DATABASE'),
+                port='3306'
             )
             cursor = connection.cursor()
             cursor.execute(

@@ -3,17 +3,21 @@ version: '3.8'
 services:
   app:
     container_name: scraperDocker
+    network_mode: "host"
+    # restart: always
+    ports:
+      - "19090:9090"
     build:
       context: .
       dockerfile: ./src/Dockerfile
-    depends_on:
-      - db
     env_file:
       - ./src/standard_database_information.env
+    depends_on:
+      - db
 
   db:
-    restart: always
     container_name: dbDocker
+    restart: always
     ports:
       - "13306:3306"
     env_file:
