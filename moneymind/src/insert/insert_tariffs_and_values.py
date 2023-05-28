@@ -1,5 +1,6 @@
 from moneymind.src.get.get_tariffs_and_values import get_all_tariffs_and_value
-from mysql_initializer import establishing_mysql_connection
+from moneymind.src.mysql_initializer import establishing_mysql_connection
+
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()

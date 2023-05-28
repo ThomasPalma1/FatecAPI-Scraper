@@ -10,9 +10,9 @@ cursor = connection.cursor()
 
 
 def application_startup():
-    # insert_all_data_code_services()
+    insert_all_data_code_services()
     insert_consolidated_group_data()
-    # insert_all_tariffs_and_value()
+    insert_all_tariffs_and_value()
     insert_institutions()
     insert_institutions_tariffs()
 

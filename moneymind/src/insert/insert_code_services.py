@@ -1,5 +1,5 @@
-from mysql_initializer import establishing_mysql_connection
-from get.get_code_services import get_code_services
+from moneymind.src.mysql_initializer import establishing_mysql_connection
+from moneymind.src.get.get_code_services import get_code_services
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()
