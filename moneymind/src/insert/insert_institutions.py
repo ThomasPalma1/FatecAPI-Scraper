@@ -1,11 +1,11 @@
-from get.get_institutions import get_institutions
+from moneymind.src.get.get_institutions import get_institutions
 from mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()
 cursor = connection.cursor()
 
 
-def get_and_insert_institutions():
+def insert_institutions():
     institutions = get_institutions()
     count = 0
 

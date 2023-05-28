@@ -1,6 +1,4 @@
-from get.get_tariffs_and_value import get_all_tariffs_and_value
-from get.get_consolidated_group import get_consolidated_group
-from get.get_code_services import get_code_services
+from moneymind.src.get.get_tariffs_and_values import get_all_tariffs_and_value
 from mysql_initializer import establishing_mysql_connection
 
 connection = establishing_mysql_connection()

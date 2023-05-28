@@ -1,8 +1,8 @@
 import requests
 import json
 from requests.exceptions import ConnectionError
-from get.get_consolidated_group import get_consolidated_group
-from get.get_code_services import get_code_services
+from moneymind.src.get.get_consolidated_group import get_consolidated_group
+from moneymind.src.get.get_code_services import get_code_services
 from urllib3.util.retry import Retry
 
 session = requests.Session()
@@ -29,7 +29,6 @@ def get_all_tariffs_and_value():
 
                 if results:
                     for result in results:
-
                         if result["Cnpj"]:
                             data_tariffs_values = (
                                 result["Cnpj"],
