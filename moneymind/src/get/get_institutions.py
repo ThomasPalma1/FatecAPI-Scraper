@@ -1,6 +1,6 @@
 import json
 import requests
-from get.get_consolidated_group import get_consolidated_group
+from moneymind.src.get.get_consolidated_group import get_consolidated_group
 
 
 def get_institutions():
